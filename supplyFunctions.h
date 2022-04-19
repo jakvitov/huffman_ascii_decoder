@@ -27,6 +27,15 @@ char toChar(string bin){
     return result;
 }
 
+//Translate binary string into a number
+int binToDec(string bin){
+    int result = 0;
+    int exponent = 0;
+    for (int i = (bin.length() - 1); i >= 0; i--){
+        result += ((bin.at(i) - '0') * pow(2,exponent ++));
+    }
+    return result;
+}
 
 
 #endif //HUFFMAN_SUPPLYFUNCTIONS_H
