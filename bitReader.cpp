@@ -20,7 +20,7 @@ void bitReader::fill_buffer(){
     delete[] (temp_buffer);
 }
 
-void bitReader(const std::string &fileName, std::ifstream file){
+bitReader::bitReader(const std::string &fileName, std::ifstream file){
     file.open(fileName, ios::binary);
     if (file.fail()){
         throw std::invalid_argument("File not opened!");

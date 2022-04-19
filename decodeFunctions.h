@@ -5,6 +5,7 @@
 #ifndef HUFFMAN_DECODEFUNCTIONS_H
 #define HUFFMAN_DECODEFUNCTIONS_H
 
+#include <fstream>
 #include "bitReader.h"
 #include "supplyFunctions.h"
 #include "huffmanConstructor.h"

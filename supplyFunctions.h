@@ -7,7 +7,6 @@
 
 #include "bitReader.h"
 #include "supplyFunctions.h"
-#include "huffmanConstructor.h"
 
 //Basic power function
 int pow(int base, int exponent){

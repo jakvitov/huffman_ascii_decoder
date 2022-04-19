@@ -22,7 +22,7 @@ private:
 
 public:
 
-    explicit bitReader(const std::string &fileName, std::ifstream file);
+    bitReader(const std::string &fileName, std::ifstream file);
 
     ~bitReader();
 
@@ -35,4 +35,3 @@ public:
 
 
 #endif //HW01_BITREADER_H
-
