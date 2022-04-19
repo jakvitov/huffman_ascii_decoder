@@ -1,8 +1,12 @@
+#include <iostream>
 #include "bitReader.h"
 
 void bitReader::fill_buffer(){
     char * temp_buffer = new char [buffer_size];
     this->file.read(temp_buffer, buffer_size);
+    if (file.bad() && !file.eof()){
+        throw std::invalid_argument("IOstream error!");
+    }
     //We loop trough the temporary buffer field and parse all chars into binary and
     //add it into buffer
     for (int i = 0; i < file.gcount(); i ++){
@@ -20,9 +24,10 @@ void bitReader::fill_buffer(){
     delete[] (temp_buffer);
 }
 
-bitReader::bitReader(const std::string &fileName, std::ifstream file){
+bitReader::bitReader(const std::string &fileName){
     file.open(fileName, ios::binary);
     if (file.fail()){
+        cout << "The file: " << fileName << " cannot be opened!" << endl;
         throw std::invalid_argument("File not opened!");
     }
 }
@@ -34,7 +39,7 @@ bitReader::~bitReader() {
 //Return next bit, if file has ended and buffer is empty return 8
 //8 is reserved value for error-flag
 char bitReader::nextBit(){
-    //Pokud je buffer prázdný, nebo se vyprazdňuje tak načteme další
+    //We fill the buffer, if it's empty or too small
     if (this->buffer.empty() || this->buffer.length() < 5){
         this->fill_buffer();
     }

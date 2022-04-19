@@ -12,8 +12,8 @@
 using namespace std;
 
 int main() {
-    char * inputFile;
-    char * outputFile;
+    string inputFile;
+    string outputFile;
 
     cout << "Wellcome to the Huffman ASCII decoder!" << endl;
     cout << setfill('-') << setw(40) << "" << endl;
@@ -21,11 +21,11 @@ int main() {
     cout << "Insert the name of the file that you'd like to decode:" << endl;
     cin >> inputFile;
     cout << "Insert the name of the result file:" << endl;
-    cin >> inputFile;
+    cin >> outputFile;
 
     cout << "Translating..." << endl;
 
-    if (decodeFile(inputFile, outputFile)){
+    if (decodeFile(inputFile.c_str(), outputFile.c_str())){
         cout << setfill('*') << setw(14) << "" << endl;
         cout << "Completed!" << endl;
         cout << setfill('*') << setw(14) << "" << endl;

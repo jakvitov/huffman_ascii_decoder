@@ -19,7 +19,6 @@ int pow(int base, int exponent){
     }
     return base;
 }
-
 //Transform a binary string into a char
 char toChar(string bin){
     char result = 0;

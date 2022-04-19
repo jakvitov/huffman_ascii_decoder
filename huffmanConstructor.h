@@ -20,6 +20,7 @@ struct treeNode{
 //Construct Huffman tree from the beginning of the file
 void hufConstr(bitReader & reader, treeNode ** root){
     char bit = reader.nextBit();
+
     if (bit == '0'){
         auto * node = new treeNode;
         node->value = -100;
@@ -44,6 +45,9 @@ void hufConstr(bitReader & reader, treeNode ** root){
 
 //A function to delete the tree and free all the taken memory
 void hufDelete(treeNode ** root){
+    if (!(*root)){
+        return;
+    }
     if((*root)->right){
         hufDelete(&(*root)->right);
     }

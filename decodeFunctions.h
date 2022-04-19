@@ -12,24 +12,32 @@
 
 bool decodeFile ( const char * inputFile, const char * outputFile )
 {
+    treeNode * root = nullptr;
+    ofstream out;
     try {
-        bitReader reader(inputFile, std::ifstream());
-        ofstream out(outputFile);
-        if (out.fail()){
+        bitReader reader(inputFile);
+        out.open(outputFile);
+        if (out.fail() || out.bad()){
+            cout << "Output file cannot be opened!" << endl;
             throw std::invalid_argument("File not opened!");
         }
-        treeNode * root;
         hufConstr(reader, &root);
         bool last_chunk = false;
         while (!last_chunk){
+            if (out.fail() || out.bad()){
+                throw std::invalid_argument("File not opened!");
+            }
             string chunk = translChunk(reader, &root, last_chunk);
             out << chunk;
         }
-        hufDelete(&root);
     }
     catch (std::invalid_argument & e){
+        out.close();
+        hufDelete(&root);
         return false;
     }
+    out.close();
+    hufDelete(&root);
     return true;
 }
 

@@ -22,7 +22,7 @@ private:
 
 public:
 
-    bitReader(const std::string &fileName, std::ifstream file);
+    bitReader(const std::string &fileName);
 
     ~bitReader();
 
