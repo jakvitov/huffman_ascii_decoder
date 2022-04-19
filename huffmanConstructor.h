@@ -7,6 +7,7 @@
 #ifndef HUFFMAN_HUFFMANCONSTRUCTOR_H
 #define HUFFMAN_HUFFMANCONSTRUCTOR_H
 
+#include <iostream>
 #include "bitReader.h"
 #include "supplyFunctions.h"
 
