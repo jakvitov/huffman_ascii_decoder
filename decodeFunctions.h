@@ -4,6 +4,11 @@
 
 #ifndef HUFFMAN_DECODEFUNCTIONS_H
 #define HUFFMAN_DECODEFUNCTIONS_H
+
+#include "bitReader.h"
+#include "supplyFunctions.h"
+#include "huffmanConstructor.h"
+
 bool decodeFile ( const char * inputFile, const char * outputFile )
 {
     try {

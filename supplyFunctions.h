@@ -5,6 +5,10 @@
 #ifndef HUFFMAN_SUPPLYFUNCTIONS_H
 #define HUFFMAN_SUPPLYFUNCTIONS_H
 
+#include "bitReader.h"
+#include "supplyFunctions.h"
+#include "huffmanConstructor.h"
+
 //Basic power function
 int pow(int base, int exponent){
     int origbase = base;

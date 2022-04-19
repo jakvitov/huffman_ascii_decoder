@@ -7,6 +7,9 @@
 #ifndef HUFFMAN_HUFFMANCONSTRUCTOR_H
 #define HUFFMAN_HUFFMANCONSTRUCTOR_H
 
+#include "bitReader.h"
+#include "supplyFunctions.h"
+
 //Tree node structure
 struct treeNode{
     treeNode * right = nullptr;
